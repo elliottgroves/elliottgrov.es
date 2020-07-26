@@ -4,7 +4,7 @@
 			<div class="logo">
 				<img :src="require('@/assets/images/e.svg')">
 			</div>
-			<p class="label">March 2020</p>
+			<p class="label">August 2020</p>
 		</div>
 	</div>
 </template>
