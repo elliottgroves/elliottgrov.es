@@ -21,7 +21,7 @@ export default {
 	},
 	data: () => ({
 		svgs: ['natural', 'intuitive', 'frictionless'],
-		// svgs: ['natural'],
+		// svgs: ['frictionless'],
 		activeSvgIndex: 0,
 		rotateSvgInterval: null,
 		svgAnimationMs: 4500,
@@ -69,8 +69,10 @@ main {
 		transform: translateY(0);
 		opacity: 1;
 	}
-	.svgs-enter, .svgs-leave-to {
+	.svgs-enter {
 		transform: translateY(2rem);
+	}
+	.svgs-enter, .svgs-leave-to {
 		opacity: 0;
 	}
 }

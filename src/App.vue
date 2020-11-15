@@ -3,15 +3,15 @@
 		<header role="banner">
 			<h1 data-text="Elliott Groves Design">Elliott Groves Design</h1>
 			<nav aria-label="Main Navigation" role="navigation">
-				<button>
-					<i class="material-icons">home</i>
-				</button>
-				<button>
-					<i class="material-icons">account_circle</i>
-				</button>
-				<button>
-					<i class="material-icons">mail</i>
-				</button>
+				<a target="_blank" href="https://www.linkedin.com/in/elliott-groves-130b8196/">
+					<i class="material-icons">work</i>
+				</a>
+				<a target="_blank" href="https://soundcloud.com/mazybeats">
+					<i class="material-icons">library_music</i>
+				</a>
+				<a target="_blank" href="https://twitter.com/KirbyCucumber">
+					<i class="material-icons">campaign</i>
+				</a>
 			</nav>
 		</header>
 		<!-- <router-view></router-view> -->
@@ -30,6 +30,17 @@ export default {
 	},
 }
 </script>
+
+<style lang="scss">
+body {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+}
+</style>
 
 <style scoped lang="scss">
 $primary: #323a45;
@@ -76,7 +87,7 @@ $primary: #323a45;
 			justify-content: center;
 			box-shadow: 0 2rem 3rem $primary;
 			z-index: 3;
-			button {
+			a {
 				margin-right: 1.5rem;
 				background: transparent;
 				border: none;
