@@ -1,10 +1,28 @@
 <template>
-	<main role="main">
-		<h1>The web should be</h1>
-		<transition mode="out-in" name="svgs">
-			<component :is="svgs[activeSvgIndex]" :animation-time="svgAnimationMs"></component>
-		</transition>
-	</main>
+	<div>
+		<header role="banner">
+			<h1 data-text="Elliott Groves Design">Elliott Groves</h1>
+			<nav aria-label="Main Navigation" role="navigation">
+				<a target="_blank" href="https://www.linkedin.com/in/elliott-groves-130b8196/">
+					<i class="material-icons">work</i>
+				</a>
+				<a target="_blank" href="https://soundcloud.com/mazybeats">
+					<i class="material-icons">library_music</i>
+				</a>
+				<a target="_blank" href="https://twitter.com/KirbyCucumber">
+					<i class="material-icons">campaign</i>
+				</a>
+			</nav>
+		</header>
+		<main role="main">
+			<h1>The web should be</h1>
+			<transition mode="out-in" name="svgs">
+				<component :is="svgs[activeSvgIndex]" :animation-time="svgAnimationMs"></component>
+			</transition>
+		</main>
+		<footer role="contentinfo"></footer>
+	</div>
+	
 </template>
 
 <script>

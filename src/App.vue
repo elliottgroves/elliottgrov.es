@@ -1,33 +1,13 @@
 <template>
 	<div id="app">
-		<header role="banner">
-			<h1 data-text="Elliott Groves Design">Elliott Groves Design</h1>
-			<nav aria-label="Main Navigation" role="navigation">
-				<a target="_blank" href="https://www.linkedin.com/in/elliott-groves-130b8196/">
-					<i class="material-icons">work</i>
-				</a>
-				<a target="_blank" href="https://soundcloud.com/mazybeats">
-					<i class="material-icons">library_music</i>
-				</a>
-				<a target="_blank" href="https://twitter.com/KirbyCucumber">
-					<i class="material-icons">campaign</i>
-				</a>
-			</nav>
-		</header>
-		<!-- <router-view></router-view> -->
-		<home></home>
-		<footer role="contentinfo"></footer>
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import Home from './components/home/home.vue';
 
 export default {
-	name: 'App',
-	components: {
-		Home,
-	},
+	name: 'App'
 }
 </script>
 
@@ -42,7 +22,7 @@ body {
 }
 </style>
 
-<style scoped lang="scss">
+<style lang="scss">
 $primary: #323a45;
 
 #app {
