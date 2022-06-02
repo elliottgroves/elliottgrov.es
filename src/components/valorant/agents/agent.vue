@@ -43,7 +43,7 @@ export default {
 		.agent-info {
 			display: flex;
 			flex-flow: column;
-			flex: 0 1 800px;
+			flex: 0 1 700px;
       .agent-name {
         font-size: 4rem;
       }
