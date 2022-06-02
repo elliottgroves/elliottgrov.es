@@ -1,7 +1,5 @@
 <template>
-	<div id="app">
-		<router-view></router-view>
-	</div>
+  <router-view></router-view>
 </template>
 
 <script>
@@ -14,25 +12,16 @@ export default {
 $primary: #323a45;
 
 body {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   margin: 0;
 }
 
 #app {
 	background: $primary;
 	color: white;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	font-family: 'Roboto', sans-serif;
 	display: flex;
 	flex-flow: column;
+  min-height: 100vh;
 	header {
 		display: flex;
 		position: relative;
@@ -47,15 +36,6 @@ body {
 			margin: 0;
 			letter-spacing: 0.14rem;
 			color: #888;
-			// &::after {
-			// 	content: attr(data-text);
-			// 	font-size: 3.08rem;
-			// 	user-select: none;
-			// 	color: white;
-			// 	animation: shadow 5s ease-out 1s infinite forwards;
-			// 	position: absolute;
-			// 	top: -0.4rem;
-			// }
 		}
 		nav {
 			display: flex;

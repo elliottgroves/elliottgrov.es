@@ -33,11 +33,6 @@ export default {
 <style scoped lang="scss">
 	.agent-container {
     font-family: "Zen Kaku Gothic New", sans-serif;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
 		display: flex;
 		justify-content: center;
 		.agent-info {
@@ -49,4 +44,25 @@ export default {
       }
 		}
 	}
+  @media (max-width: 700px) {
+    .agent-container {
+      height: 100%;
+      .agent-info {
+        width: 100%;
+        padding: 0 30px;
+        .agent-name {
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+</style>
+
+<style lang="scss">
+.agent-info {
+  ol {
+    padding-left: 20px;
+    list-style-position: outside;
+  }
+}
 </style>
