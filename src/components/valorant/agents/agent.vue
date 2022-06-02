@@ -1,7 +1,7 @@
 <template>
 	<div class="agent-container">
 		<div class="agent-info">
-			<h3 v-if="map">{{ map }}</h3>
+			<h3 v-if="map" class="map-name">{{ map }}</h3>
 			<h1 class="agent-name">{{ name.toUpperCase() }}</h1>
       <divider text="GAMEPLAY TIPS"></divider>
       <slot name="tips"></slot>
@@ -35,12 +35,17 @@ export default {
     font-family: "Zen Kaku Gothic New", sans-serif;
 		display: flex;
 		justify-content: center;
+    padding-bottom: 6rem;
 		.agent-info {
 			display: flex;
 			flex-flow: column;
 			flex: 0 1 700px;
+      .map-name {
+        text-align: right;
+      }
       .agent-name {
         font-size: 4rem;
+        text-align: center;
       }
 		}
 	}
