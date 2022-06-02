@@ -5,6 +5,8 @@
 			<h1 class="agent-name">{{ name.toUpperCase() }}</h1>
       <divider text="GAMEPLAY TIPS"></divider>
       <slot name="tips"></slot>
+      <divider text="PICK REASONING" style="margin-top: 3rem;"></divider>
+      <slot name="reasons"></slot>
 		</div>
 	</div>
 </template>

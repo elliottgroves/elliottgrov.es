@@ -3,6 +3,9 @@
     <template v-slot:tips>
       <vue-markdown :source="tips"></vue-markdown>
     </template>
+    <template v-slot:reasons>
+      <vue-markdown :source="reasons"></vue-markdown>
+    </template>
   </agent>
 </template>
 
@@ -29,6 +32,9 @@ export default {
   computed: {
     tips () {
       return this.map ? raze[this.map].tips : ''
+    },
+    reasons () {
+      return this.map ? raze[this.map].reasons : ''
     }
   }
 }
