@@ -56,7 +56,7 @@ export default {
 	created() {
 		this.rotateSvgInterval = setInterval(this.incrementActiveSvgIndex, this.svgAnimationMs);
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		clearInterval(this.rotateSvgInterval);
 	},
 }

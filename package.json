@@ -1,32 +1,32 @@
 {
   "name": "elliottgrov.es",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "postinstall": "npm run build",
     "start": "node server.js"
   },
   "dependencies": {
+    "@vue/compat": "^3.1.0-0",
     "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.4.4",
     "express": "^4.17.1",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "serve-static": "^1.14.1",
-    "vue": "^2.6.10",
-    "vue-router": "^3.4.3"
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.15"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
-    "@vue/cli-service": "^4.1.0",
+    "@vue/cli-service": "^4.5.17",
+    "@vue/compiler-sfc": "^3.1.0-0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
+    "eslint-plugin-vue": "^5.0.0"
   },
   "eslintConfig": {
     "root": true,

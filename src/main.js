@@ -1,22 +1,11 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
 
-import routes from './routes'
-
-Vue.config.productionTip = false
-
-const router = new VueRouter({
-    mode: 'history',
-    routes
-})
-
-Vue.use(VueRouter)
+const finalApp = createApp(App)
+finalApp.use(router)
 
 import titleMixin from './titleMixin'
-Vue.mixin(titleMixin)
+finalApp.mixin(titleMixin)
 
-new Vue({
-	router,
-  render: h => h(App),
-}).$mount('#app')
+finalApp.mount('#app')
