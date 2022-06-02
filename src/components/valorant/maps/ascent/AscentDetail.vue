@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Raze from '@/components/valorant/agents/raze.vue'
+import Raze from '@/components/valorant/agents/raze/raze.vue'
 
 export default {
   name: 'AscentDetail',

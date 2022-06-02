@@ -11,18 +11,16 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	margin: 0;
-}
-</style>
-
-<style lang="scss">
 $primary: #323a45;
+
+body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+}
 
 #app {
 	background: $primary;

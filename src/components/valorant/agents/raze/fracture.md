@@ -1,0 +1,4 @@
+1. **You are the entry fragger**. This means you should always be in front of your teammates, and first in on an execute. **Do not ever lurk** (i.e. leave your team to play individually).
+2. Communicate to your team when you are going in so they can move into the space you created for them and trade you when you die.
+3. Dying is okay! You are still generating value for your team by creating space for them to follow up on.
+4. Don't be afraid to throw your grenade on contact with an enemy. Even if it doesn't cause a lot of damage, slowing down their execute or pushing them off an angle is the value you want to get on Fracture especially.
