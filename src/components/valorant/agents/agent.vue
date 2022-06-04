@@ -89,7 +89,7 @@ export default {
         align-items: center;
         justify-content: center;
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin: 1rem 0 3rem 0;
         img, .image-placeholder {
           height: 2rem;
           margin-right: 1rem;

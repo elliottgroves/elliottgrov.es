@@ -37,7 +37,7 @@ export default {
     font-family: "Zen Kaku Gothic New", sans-serif;
     padding: 1rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1rem;
     .logo-link {
       display: flex;
