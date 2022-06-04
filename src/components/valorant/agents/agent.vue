@@ -1,18 +1,45 @@
 <template>
-	<div class="agent-container">
-		<div class="agent-info">
-			<h3 v-if="map" class="map-name">{{ map }}</h3>
-			<h1 class="agent-name">{{ name.toUpperCase() }}</h1>
-      <divider text="GAMEPLAY TIPS"></divider>
-      <slot name="tips"></slot>
-      <divider text="PICK REASONING" style="margin-top: 3rem;"></divider>
-      <slot name="reasons"></slot>
-		</div>
-	</div>
+  <div>
+    <nav class="main-nav">
+      <router-link to="/easyval" class="logo-link">
+        <img :src="logo" alt="Easyval logo">
+      </router-link>
+    </nav>
+    <div class="agent-container">
+      <div class="agent-info">
+        <h3 v-if="map" class="map-name">{{ map }}</h3>
+        <transition name="agent-logo" appear>
+          <div class="agent-name-container">
+            <img v-if="role === 'controller'" :src="controllerLogo" alt="Controller logo"/>
+            <img v-else-if="role === 'duelist'" :src="duelistLogo" alt="Duelist logo"/>
+            <img v-else-if="role === 'initiator'" :src="initiatorLogo" alt="Initiator logo"/>
+            <img v-else-if="role === 'sentinel'" :src="sentinelLogo" alt="Sentinel logo"/>
+            <div v-else class="image-placeholder"></div>
+            <h1 class="agent-name">{{ name.toUpperCase() }}</h1>
+          </div>
+        </transition>
+        <divider text="GAMEPLAY TIPS"></divider>
+        <slot name="tips"></slot>
+        <divider text="PICK REASONING" style="margin-top: 3rem;"></divider>
+        <slot name="reasons"></slot>
+        <divider text="LINEUPS" style="margin-top: 3rem;"></divider>
+        <slot name="lineups">
+          <p>
+            <i>No lineups available for this agent on this map</i>
+          </p>
+        </slot>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import divider from 'src/components/shared/divider'
+import logo from 'src/assets/images/valorant/logo.svg'
+import controllerLogo from 'src/assets/images/valorant/controller.svg'
+import duelistLogo from 'src/assets/images/valorant/duelist.svg'
+import initiatorLogo from 'src/assets/images/valorant/initiator.svg'
+import sentinelLogo from 'src/assets/images/valorant/sentinel.svg'
 
 export default {
   name: 'Agent',
@@ -24,15 +51,39 @@ export default {
       type: String,
       required: true
     },
+    role: {
+      type: String,
+      required: true,
+      validator: (value) => {
+        return ['controller', 'duelist', 'initiator', 'sentinel'].includes(value)
+      }
+    },
     map: {
       type: String,
       required: false
+    }
+  },
+  data: () => {
+    return {
+      logo,
+      controllerLogo,
+      duelistLogo,
+      initiatorLogo,
+      sentinelLogo
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+  .main-nav {
+    padding: 1rem;
+    .logo-link {
+      img {
+        height: 3rem;
+      }
+    }
+  }
 	.agent-container {
     font-family: "Zen Kaku Gothic New", sans-serif;
 		display: flex;
@@ -44,10 +95,23 @@ export default {
 			flex: 0 1 700px;
       .map-name {
         text-align: right;
+        margin: 0;
       }
-      .agent-name {
-        font-size: 4rem;
-        text-align: center;
+      .agent-name-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 2rem 0;
+        img, .image-placeholder {
+          height: 2rem;
+          margin-right: 1rem;
+          margin-top: 0.5rem;
+        }
+        .agent-name {
+          margin: 0;
+          line-height: 4rem;
+        }
       }
 		}
 	}
@@ -62,6 +126,13 @@ export default {
         }
       }
     }
+  }
+  .agent-logo-enter-active {
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+  .agent-logo-enter {
+    transform: translateY(-1rem);
+    opacity: 0;
   }
 </style>
 

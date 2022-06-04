@@ -1,5 +1,5 @@
 <template>
-	<agent name="Raze" :map="map">
+	<agent name="Raze" role="duelist" :map="map">
     <template v-slot:tips>
       <vue-markdown :source="tips"></vue-markdown>
     </template>
