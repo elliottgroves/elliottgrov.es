@@ -1,13 +1,8 @@
 <template>
   <div>
-    <nav class="main-nav">
-      <router-link to="/easyval" class="logo-link">
-        <img :src="logo" alt="Easyval logo">
-      </router-link>
-    </nav>
+    <main-nav :map="map"></main-nav>
     <div class="agent-container">
       <div class="agent-info">
-        <h3 v-if="map" class="map-name">{{ map }}</h3>
         <transition name="agent-logo" appear>
           <div class="agent-name-container">
             <img v-if="role === 'controller'" :src="controllerLogo" alt="Controller logo"/>
@@ -34,8 +29,8 @@
 </template>
 
 <script>
+import mainNav from "src/components/valorant/mainNav";
 import divider from 'src/components/shared/divider'
-import logo from 'src/assets/images/valorant/logo.svg'
 import controllerLogo from 'src/assets/images/valorant/controller.svg'
 import duelistLogo from 'src/assets/images/valorant/duelist.svg'
 import initiatorLogo from 'src/assets/images/valorant/initiator.svg'
@@ -44,6 +39,7 @@ import sentinelLogo from 'src/assets/images/valorant/sentinel.svg'
 export default {
   name: 'Agent',
   components: {
+    mainNav,
     divider
   },
   props: {
@@ -65,7 +61,6 @@ export default {
   },
   data: () => {
     return {
-      logo,
       controllerLogo,
       duelistLogo,
       initiatorLogo,
@@ -76,14 +71,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .main-nav {
-    padding: 1rem;
-    .logo-link {
-      img {
-        height: 3rem;
-      }
-    }
-  }
 	.agent-container {
     font-family: "Zen Kaku Gothic New", sans-serif;
 		display: flex;
@@ -102,7 +89,7 @@ export default {
         align-items: center;
         justify-content: center;
         font-size: 2rem;
-        margin: 2rem 0;
+        margin-bottom: 2rem;
         img, .image-placeholder {
           height: 2rem;
           margin-right: 1rem;

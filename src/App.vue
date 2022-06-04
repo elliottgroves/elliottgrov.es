@@ -13,6 +13,7 @@ $primary: #323a45;
 
 body {
   margin: 0;
+  background: $primary;
 }
 
 #app {
