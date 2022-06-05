@@ -12,8 +12,7 @@
               <img v-else-if="role === 'sentinel'" :src="sentinelLogo" alt="Sentinel logo"/>
               <div v-else class="image-placeholder"></div>
             </transition>
-<!--            <h1 class="agent-name">{{ name.toUpperCase() }}</h1>-->
-            <h1 class="agent-name">BRIMSTONE</h1>
+            <h1 class="agent-name">{{ name.toUpperCase() }}</h1>
           </div>
         </transition>
         <div class="agent-details">
