@@ -39,6 +39,7 @@ export default {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
+    color: white;
     .logo-link {
       display: flex;
       align-items: center;

@@ -1,4 +1,4 @@
-import * as VueRouter from 'vue-router'
+import VueRouter from 'vue-router'
 import Home from './components/home/home.vue'
 import Valorant from './components/valorant/valorant.vue'
 import AscentLanding from './components/valorant/maps/ascent/AscentLanding.vue'
@@ -15,8 +15,8 @@ const routes = [
 	{path: '/easyval/fracture/:agent', component: FractureDetail, props: true}
 ]
 
-const router = new VueRouter.createRouter({
-	history: VueRouter.createWebHistory(),
+const router = new VueRouter({
+	mode: 'history',
 	routes
 })
 

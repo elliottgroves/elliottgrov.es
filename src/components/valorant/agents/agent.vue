@@ -87,6 +87,7 @@ export default {
 		display: flex;
 		justify-content: center;
     padding-bottom: 6rem;
+    color: white;
 		.agent-info {
 			display: flex;
 			flex-flow: column;

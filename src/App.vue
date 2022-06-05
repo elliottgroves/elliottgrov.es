@@ -15,6 +15,11 @@ body {
   margin: 0;
   background: $primary;
 }
+@media (max-width: 700px) {
+  body {
+    overflow-x: hidden;
+  }
+}
 
 #app {
 	background: $primary;
