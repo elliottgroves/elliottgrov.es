@@ -4,8 +4,8 @@
       <img :src="logo" alt="Easyval logo">
     </router-link>
     <div class="flex-spacer"></div>
-    <div v-if="map">
-      <span>{{ map }}</span>
+    <div v-if="map" class="map-selector">
+      <span>{{ map.substr(0,1).toUpperCase().concat(map.substr(1)) }}</span>
     </div>
   </nav>
 </template>
@@ -37,8 +37,8 @@ export default {
     font-family: "Zen Kaku Gothic New", sans-serif;
     padding: 1rem;
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 1rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
     .logo-link {
       display: flex;
       align-items: center;
@@ -49,6 +49,11 @@ export default {
     .flex-spacer {
       display: flex;
       flex-grow: 1;
+    }
+    .map-selector {
+      font-family: "Jockey One", sans-serif;
+      font-size: 1.8rem;
+      text-transform: uppercase;
     }
   }
 </style>

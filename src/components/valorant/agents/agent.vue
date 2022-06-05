@@ -5,24 +5,35 @@
       <div class="agent-info">
         <transition name="agent-logo" appear>
           <div class="agent-name-container">
-            <img v-if="role === 'controller'" :src="controllerLogo" alt="Controller logo"/>
-            <img v-else-if="role === 'duelist'" :src="duelistLogo" alt="Duelist logo"/>
-            <img v-else-if="role === 'initiator'" :src="initiatorLogo" alt="Initiator logo"/>
-            <img v-else-if="role === 'sentinel'" :src="sentinelLogo" alt="Sentinel logo"/>
-            <div v-else class="image-placeholder"></div>
-            <h1 class="agent-name">{{ name.toUpperCase() }}</h1>
+            <transition name="agent-role-logo" appear>
+              <img v-if="role === 'controller'" :src="controllerLogo" alt="Controller logo"/>
+              <img v-else-if="role === 'duelist'" :src="duelistLogo" alt="Duelist logo"/>
+              <img v-else-if="role === 'initiator'" :src="initiatorLogo" alt="Initiator logo"/>
+              <img v-else-if="role === 'sentinel'" :src="sentinelLogo" alt="Sentinel logo"/>
+              <div v-else class="image-placeholder"></div>
+            </transition>
+<!--            <h1 class="agent-name">{{ name.toUpperCase() }}</h1>-->
+            <h1 class="agent-name">BRIMSTONE</h1>
           </div>
         </transition>
-        <divider text="GAMEPLAY TIPS"></divider>
-        <slot name="tips"></slot>
-        <divider text="PICK REASONING" style="margin-top: 3rem;"></divider>
-        <slot name="reasons"></slot>
-        <divider text="LINEUPS" style="margin-top: 3rem;"></divider>
-        <slot name="lineups">
-          <p>
-            <i>No lineups available for this agent on this map</i>
-          </p>
-        </slot>
+        <div class="agent-details">
+          <section>
+            <divider text="GAMEPLAY TIPS"></divider>
+            <slot name="tips"></slot>
+          </section>
+          <section>
+            <divider text="PICK REASONING"></divider>
+            <slot name="reasons"></slot>
+          </section>
+          <section>
+            <divider text="LINEUPS"></divider>
+            <slot name="lineups">
+              <p>
+                <i>No lineups available for this agent on this map</i>
+              </p>
+            </slot>
+          </section>
+        </div>
       </div>
     </div>
   </div>
@@ -93,11 +104,23 @@ export default {
         img, .image-placeholder {
           height: 2rem;
           margin-right: 1rem;
-          margin-top: 0.5rem;
         }
         .agent-name {
+          font-family: "Anton", sans-serif;
           margin: 0;
           line-height: 4rem;
+          font-weight: normal;
+        }
+      }
+      .agent-details {
+        section {
+          margin-bottom: 3rem;
+          &:nth-child(odd) {
+            background: #fff1;
+            padding: 1rem 2rem;
+            margin: 0 -2rem;
+            margin-bottom: 3rem;
+          }
         }
       }
 		}
@@ -108,18 +131,21 @@ export default {
       .agent-info {
         width: 100%;
         padding: 0 30px;
-        .agent-name {
-          font-size: 4rem;
-        }
       }
     }
   }
   .agent-logo-enter-active {
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transition: transform 1s ease-out, opacity 1s ease-out;
   }
   .agent-logo-enter {
     transform: translateY(-1rem);
     opacity: 0;
+  }
+  .agent-role-logo-enter-active {
+    transition: transform 1s ease-out;
+  }
+  .agent-role-logo-enter {
+    transform: rotate(-40deg);
   }
 </style>
 
@@ -128,6 +154,11 @@ export default {
   ol {
     padding-left: 20px;
     list-style-position: outside;
+  }
+  section {
+    strong {
+      font-family: Arial, sans-serif;
+    }
   }
 }
 </style>
