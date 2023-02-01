@@ -44,7 +44,7 @@
             <img src="https://images.unsplash.com/photo-1555037015-1498966bcd7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="">
             <img src="https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80" alt="">
         </div>
-        <div v-for="i in [0,1,2,3]" :class="`tracer-text-contanier-${i}`" class="tracer-text-container">
+        <div v-for="i in [0,1,2,3]" class="tracer-text-container">
             <div class="tracer-text-alignment-parent">
                 <div class="tracer-text-alignment-child">
                     <p class="tracer-text">human</p>
@@ -67,9 +67,9 @@
         </section>
         <section id="tracer-text-trigger">
             <div class="content">
-                <!-- <p>We're all</p> -->
+                <p>We're all</p>
                 <p class="large-split-text">human</p>
-                <!-- <p>Shouldn't the web be?</p> -->
+                <p>Shouldn't the web be?</p>
             </div>
         </section>
         <section>
@@ -96,20 +96,13 @@
             width: 50%;
             object-position: center;
             object-fit: cover;
-            &:first-of-type {
-                border-top-left-radius: 100%;
-                border-bottom-left-radius: 100%;
-            }
-            &:last-of-type {
-                border-top-right-radius: 100%;
-                border-bottom-right-radius: 100%;
-            }
         }
     }
     .tracer-text-container {
         position: absolute;
         left: 0;
         right: 100vw;
+        top: 100vh;
         display: flex;
         width: 100vw;
         height: 100vh;
@@ -122,7 +115,7 @@
             }
         }
         &:nth-child(3) {
-            transition-delay: 150ms;
+            transition-delay: 130ms;
             .tracer-text {
                 color: blue !important;
             }
@@ -132,9 +125,6 @@
             .tracer-text {
                 color: yellow !important;
             }
-        }
-        &:nth-child(5) {
-            filter: drop-shadow(0 0 6px #fff);
         }
         .tracer-text-alignment-parent {
             width: min(1200px, 100vw);
@@ -147,7 +137,7 @@
                 align-items: center;
                 .tracer-text {
                     color: white;
-                    transform: translateX(-30vw);
+                    transform: translateX(-50%);
                     font-family: 'Abril Fatface', cursive;
                     font-size: clamp(4rem, 20vw, 20rem);
                 }
@@ -187,13 +177,22 @@
             overflow: hidden;
             font-size: 3rem;
             p {
-                font-family: 'Libre Baskerville', serif;
+                font-family: 'Reenie Beanie', cursive;
+                font-size: 4rem;
+                display: flex;
+                flex-basis: 33.333%;
+                align-items: center;
+                &:last-of-type {
+                    text-align: center;
+                }
             }
             h1 {
                 font-family: 'Abril Fatface', cursive;
+                display: flex;
+                flex-basis: 33.333%;
             }
             .large-split-text {
-                transform: translateX(-30vw);
+                transform: translateX(-50%);
                 font-family: 'Abril Fatface', cursive;
                 font-size: clamp(4rem, 20vw, 20rem);
             }
