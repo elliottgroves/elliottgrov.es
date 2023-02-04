@@ -1,11 +1,24 @@
 <script setup lang="ts">
     import { onMounted, onUnmounted } from 'vue'
 
-    let shouldAdjustHeight = false
+    let shouldAdjustTracerTextHeight = false
 
     const handleScroll = (event: Event) => {
+        animateTracerTexts(event);
+
+        const backgroundOne = document.getElementById('background-one')
+        if (backgroundOne) {
+            const percentScrolled = (window.innerHeight - event.target.scrollTop) / window.innerHeight * 100
+            backgroundOne.style.borderTopLeftRadius = `${percentScrolled}%`
+        }
+    }
+    
+    const animateTracerTexts = (event: Event) => {
+        if (!('target' in event)) {
+            return
+        }
         const tracerTexts = document.getElementsByClassName('tracer-text-container')
-        if (!tracerTexts || !shouldAdjustHeight) {
+        if (!tracerTexts || !shouldAdjustTracerTextHeight) {
             return
         }
         [...tracerTexts].forEach(t => {
@@ -16,9 +29,9 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                shouldAdjustHeight = true
+                shouldAdjustTracerTextHeight = true
             } else {
-                shouldAdjustHeight = false
+                shouldAdjustTracerTextHeight = false
             }
         })
     })
@@ -27,21 +40,24 @@
         const rootElement = document.getElementById('app')
         const tracerText = document.getElementById('tracer-text-trigger')
         rootElement?.addEventListener('scroll', handleScroll, false)
-        observer.observe(tracerText)
+        if (tracerText) {
+            observer.observe(tracerText)
+        }
     })
 
     onUnmounted(() => {
         const rootElement = document.getElementById('app')
-        const tracerText = document.getElementById('tracer-text-trigger')
         rootElement?.removeEventListener('scroll', handleScroll, false)
-        observer.observe(tracerText)
     }) 
 </script>
 
 <template>
     <div class="background-container">
         <div class="background-images">
-            <img src="https://images.unsplash.com/photo-1555037015-1498966bcd7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt="">
+            <div id="background-one">
+
+            </div>
+            <!-- <img src="https://images.unsplash.com/photo-1555037015-1498966bcd7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80" alt=""> -->
             <img src="https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80" alt="">
         </div>
         <div v-for="i in [0,1,2,3]" class="tracer-text-container">
@@ -97,6 +113,20 @@
             object-position: center;
             object-fit: cover;
         }
+        #background-one {
+            width: 50%;
+            border-top-left-radius: 100%;
+            // background: linear-gradient(217deg, $accent-color-two, rgba(255,0,0,0) 70.71%),
+            // linear-gradient(127deg, $bg-color, rgba(0,255,0,0) 70.71%),
+            // linear-gradient(336deg, $accent-color-one, rgba(0,0,255,0) 70.71%);
+            background: linear-gradient(-45deg, $accent-color-one, $accent-color-two);
+            background-size: 200% 200%;
+            animation: banner-bg 10s ease-in-out alternate infinite;
+        }
+    }
+    @keyframes banner-bg {
+        0% { background-position: 0% 0% }
+        100% { background-position: 100% 100% }
     }
     .tracer-text-container {
         position: absolute;
@@ -107,23 +137,23 @@
         width: 100vw;
         height: 100vh;
         justify-content: center;
-        transition: top 0.5s cubic-bezier(.73,.37,.52,1.63);
+        transition: top 1s cubic-bezier(.8,.22,.05,1.67);
         &:nth-child(4) {
-            transition-delay: 75ms;
+            transition-delay: 50ms;
             .tracer-text {
-                color: red !important;
+                color: $accent-color-one !important;
             }
         }
         &:nth-child(3) {
             transition-delay: 130ms;
             .tracer-text {
-                color: blue !important;
+                color: $accent-color-two !important;
             }
         }
         &:nth-child(2) {
             transition-delay: 225ms;
             .tracer-text {
-                color: yellow !important;
+                color: $bg-color !important;
             }
         }
         .tracer-text-alignment-parent {
@@ -136,7 +166,7 @@
                 display: flex;
                 align-items: center;
                 .tracer-text {
-                    color: white;
+                    color: $text-color;
                     transform: translateX(-50%);
                     font-family: 'Abril Fatface', cursive;
                     font-size: clamp(4rem, 20vw, 20rem);
@@ -152,7 +182,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
-    color: white;
+    color: $text-color;
     font-size: 3vmin;
     position: relative;
     section {
@@ -170,7 +200,7 @@
             display: flex;
             flex-flow: column;
             width: 50%;
-            background: rgb(10,10,10);
+            background: $bg-color;
             justify-content: center;
             align-items: flex-start;
             padding: 2rem;
@@ -178,13 +208,13 @@
             font-size: 3rem;
             p {
                 font-family: 'Reenie Beanie', cursive;
-                font-size: 4rem;
+                font-size: 8rem;
                 display: flex;
                 flex-basis: 33.333%;
                 align-items: center;
-                &:last-of-type {
-                    text-align: center;
-                }
+                justify-content: center;
+                text-align: center;
+                width: 100%;
             }
             h1 {
                 font-family: 'Abril Fatface', cursive;
