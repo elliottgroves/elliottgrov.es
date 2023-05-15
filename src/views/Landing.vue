@@ -6,15 +6,14 @@ import Hero from '@/components/hero.vue'
 <template>
   <section class="hero">
     <Hero></Hero>
-    <!-- <Logo></Logo> -->
   </section>
 </template>
 
 <style lang=scss>
-main {
+.hero {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-grow: 1;
+  align-items: flex-start;
+  justify-content: center;
 }
 </style>
