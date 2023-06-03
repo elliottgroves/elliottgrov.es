@@ -3,7 +3,7 @@ import Card from 'primevue/card'
 
 const headerSrc = new URL('@/images/rug.jpg', import.meta.url).href
 
-const techList: Array<string> = ['Angular', 'React', 'Django', 'Go', 'Gatsby', 'Unity', 'Processing', 'Ruby on Rails', 'D3', 'Highcharts', 'Java', 'Selenium', 'Appium']
+const techList: Array<string> = ['Angular', 'React', 'Django', 'Go', 'Gatsby', 'Nuxt', 'Unity', 'Processing', 'Ruby on Rails', 'D3', 'Highcharts', 'Java', 'Selenium', 'Appium']
 
 function fontSizeForTechListIndex (index: number) {
   if (index < 3) {

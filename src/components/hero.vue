@@ -1,31 +1,33 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { Layout, Fit, Alignment, Rive } from '@rive-app/canvas'
 
+const canvasWidth = ref(900)
+const canvasHeight = ref(450)
+
 onMounted(() => {
-  const layout = new Layout({
-    fit: Fit.FitWidth,
-    alignment: Alignment.TopCenter,
-  });
-
-  // // Constrain the Rive content to (minX, minY), (maxX, maxY) in the canvas
-  // layout = new rive.Layout({
-  //     fit: rive.Fit.Contain,
-  //     minX: 50,
-  //     minY: 50,
-  //     maxX: 100,
-  //     maxY: 100,
-  // });
-
   const r = new Rive({
     canvas: document.getElementById('hero-canvas'),
     src: '/assets/sprout.riv',
-    autoplay: true,
-    layout: layout
+    autoplay: true
   })
 })
 </script>
 
 <template>
-  <canvas id="hero-canvas" width="900" height="500"></canvas>
+  <canvas id="hero-canvas" :width="canvasWidth" :height="canvasHeight"></canvas>
 </template>
+
+<style>
+#hero-canvas {
+  width: 900px;
+  height: 450px;
+  margin-top: 5rem;
+}
+@media screen and (max-width: 900px) {
+  #hero-canvas {
+    width: 354px;
+    height: 169px;
+  }
+}
+</style>
