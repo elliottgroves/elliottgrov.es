@@ -19,7 +19,7 @@ const navMenuItems = ref([
 </script>
 
 <template>
-  <Menubar :model="navMenuItems" class="main-nav container mb-4">
+  <Menubar :model="navMenuItems" class="main-nav container mb-2">
     <template #start>
       <RouterLink :to="{ name: 'landing' }" class="mr-4">
         <LogoSmall></LogoSmall>

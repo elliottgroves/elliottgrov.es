@@ -9,6 +9,7 @@ onMounted(() => {
   const r = new Rive({
     canvas: document.getElementById('hero-canvas'),
     src: '/assets/sprout.riv',
+    animations: ['plant grow', 'sway'],
     autoplay: true
   })
 })
@@ -22,7 +23,6 @@ onMounted(() => {
 #hero-canvas {
   width: 900px;
   height: 450px;
-  margin-top: 5rem;
 }
 @media screen and (max-width: 900px) {
   #hero-canvas {
