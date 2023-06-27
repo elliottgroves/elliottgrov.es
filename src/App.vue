@@ -26,7 +26,7 @@ const navMenuItems = ref([
       </RouterLink>
     </template>
   </Menubar>
-  <main class="container">
+  <main>
     <RouterView />
   </main>
   <footer class="container">
@@ -43,6 +43,7 @@ const navMenuItems = ref([
 main {
   display: flex;
   flex-grow: 1;
+  flex-direction: column;
 }
 footer {
   display: flex;

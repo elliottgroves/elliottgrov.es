@@ -22,7 +22,7 @@ function copyEmailToClipboard() {
 </script>
 
 <template>
-  <section>
+  <section class="container">
     <Card>
       <template #header>
         <img :src="headerSrc" alt="A picture of Elliott tweezing a hand-tufted Kirby rug">

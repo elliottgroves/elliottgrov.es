@@ -16,4 +16,11 @@ import Hero from '@/components/hero.vue'
   align-items: flex-start;
   justify-content: center;
 }
+.detail {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  margin-top: 2rem;
+  box-shadow: 0 0 10px 10px #342A21;
+}
 </style>
