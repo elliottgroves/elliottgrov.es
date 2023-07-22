@@ -11,6 +11,12 @@ const navMenuItems = ref([
     to: { name: 'about' }
   },
   {
+    label: 'Github',
+    icon: 'pi pi-fw pi-github',
+    url: 'https://www.github.com/elliottgroves',
+    target: '_blank'
+  },
+  {
     label: 'Contact Me!',
     icon: 'pi pi-fw pi-envelope',
     to: { name: 'contact' }
