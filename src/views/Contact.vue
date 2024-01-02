@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import Card from 'primevue/card'
-import Button from 'primevue/button'
-import InlineMessage from 'primevue/inlinemessage'
 import { ref } from 'vue'
 
 const headerSrc = new URL('@/images/rug.jpg', import.meta.url).href
@@ -23,34 +20,26 @@ function copyEmailToClipboard() {
 
 <template>
   <section class="container">
-    <Card>
-      <template #header>
-        <img :src="headerSrc" alt="A picture of Elliott tweezing a hand-tufted Kirby rug">
-      </template>
-      <template #title>
-        Contact
-      </template>
-      <template #content>
-        <p>If you have an exciting project or a web dream you want brought to life, email me below and let's get to work 🚀</p>
-        <div class="button-group">
-          <a href="mailto:elliottgrovesdesign@gmail.com">
-            <Button icon="pi pi-envelope" label="Email me"></Button>
-          </a>
-          <div class="button-with-message">
-            <Button @click="copyEmailToClipboard" icon="pi pi-copy" label="Copy email to clipboard"></Button>
-            <Transition>
-              <InlineMessage v-if="copySuccess" severity="success">Successfully copied!</InlineMessage>
-            </Transition>
-            <Transition>
-              <InlineMessage v-if="copyError" severity="warn">Error copying email</InlineMessage>
-            </Transition>
-          </div>
-        </div>
-        <p v-if="copyError" class="mt-4">
-          The email is elliottgrovesdesign@gmail.com - sorry for the error!
-        </p>
-      </template>
-    </Card>
+    <img :src="headerSrc" alt="A picture of Elliott tweezing a hand-tufted Kirby rug">
+    <h1>Contact</h1>
+    <p>If you have an exciting project or a web dream you want brought to life, email me below and let's get to work 🚀</p>
+    <div class="button-group">
+      <a href="mailto:elliottgrovesdesign@gmail.com">
+        <Button icon="pi pi-envelope" label="Email me"></Button>
+      </a>
+      <div class="button-with-message">
+        <button @click="copyEmailToClipboard" icon="pi pi-copy" label="Copy email to clipboard"></button>
+        <Transition>
+          <InlineMessage v-if="copySuccess" severity="success">Successfully copied!</InlineMessage>
+        </Transition>
+        <Transition>
+          <InlineMessage v-if="copyError" severity="warn">Error copying email</InlineMessage>
+        </Transition>
+      </div>
+    </div>
+    <p v-if="copyError" class="mt-4">
+      The email is elliottgrovesdesign@gmail.com - sorry for the error!
+    </p>
   </section>
 </template>
 
