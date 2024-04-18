@@ -1,75 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=Reenie+Beanie&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="src/images/ruglowres.jpg" fetchpriority="high">
     <title>Elliott Groves Design</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi">
   </head>
-  <style>
-    html {
-      background-color: #423E3E;
-    }
-    .loader {
-      height: 100vh; 
-      height: 100svh; 
-      width: 100vw; 
-      width: 100svw; 
-      display: flex; 
-      flex-flow: column;
-      justify-content: center;
-      color: #D9D9D9;
-      align-items: center;
-      animation: fadein 1s ease forwards;
-      animation-delay: 2s;
-      opacity: 0;
-    }
-    @keyframes fadein {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    .loader-svg .loader-line {
-      animation: fade 1.5s ease infinite;
-    }
-    .loader-svg .loader-line:nth-child(3) {
-      animation-delay: .5s;
-    }
-    .loader-svg .loader-line:nth-child(4) {
-      animation-delay: 1s;
-    }
-    @keyframes fade {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-  </style>
-  <body style="background-color: #423E3E;">
-    <div id="app">
-      <div class="loader">
-        <p>Elliott Groves Design is loading</p>
-        <svg width="188" height="18" viewBox="0 0 188 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="loader-svg">
-          <path d="M119.687 16L83.8118 2H5.31321L41.1882 16H119.687Z" stroke="#D9D9D9" stroke-width="2"/>
-          <path d="M103 1L144 17" stroke="#D9D9D9" stroke-width="2" class="loader-line"/>
-          <path d="M125 1L166 17" stroke="#D9D9D9" stroke-width="2" class="loader-line"/>
-          <path d="M146 1L187 17" stroke="#D9D9D9" stroke-width="2" class="loader-line"/>
-        </svg>
+  <body class="container">
+    <header>
+      <h1>elliott groves design</h1>
+    </header>
+    <nav>
+      <a href="/" class="active">hello</a>
+      <a href="/sites.html">sites</a>
+      <a href="/contact.html">contact</a>
+    </nav>
+    <main>
+      <div class="headshot-container">
+        <img src="/headshot.jpg" alt="A headshot of Elliott" class="headshot">
       </div>
-    </div>
-    <script type="module" src="/src/main.ts"></script>
+      <section>
+        <h2>I love the web</h2>
+        <p>ever since I was a kid I've been interested in <span class="accent-text">digital spaces </span>like a neighborhood with <span class="accent-text">beautiful landscaping </span>and <span class="accent-text">colorful personalities</span>.</p>
+        <p>I've been lucky enough to work as a frontend developer and sometimes UI/UX designer since 2016. I would love to put my years of experience to work creating another beautiful place to be online.</p>
+        <p>While you're here feel free to <a href="/sites.html">browse some of my work</a> or <a href="/contact.html">consider reaching out</a> about building a site, hiring a frontend developer - or just to say hi!</p>
+      </section>
+      <footer>
+        <p>Thanks for visiting! <3</p>
+        <a href="/contact.html">contact me</a>
+        <p>copyright 2024 elliott groves design</p>
+      </footer>
+    </main>
   </body>
 </html>
