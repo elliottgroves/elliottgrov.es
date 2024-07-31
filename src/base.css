@@ -1,0 +1,57 @@
+:root {
+  --bg-color: rgb(26, 29, 32);
+  --text-color: rgb(193, 164, 140);
+  --emphasis-text-color: rgb(165, 189, 142);
+  --link-color: rgb(127, 156, 180);
+  --emphasis-color: #ffe86f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+}
+
+body, html {
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+}
+
+h1 {
+  letter-spacing: -1.5px;
+  font-size: 2.5rem;
+}
+
+h2 {
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+}
+
+p {
+  letter-spacing: 0.5px; 
+  line-height: 1.5rem;
+}
+
+a {
+  color: var(--link-color);
+}
