@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 const layoutVariants = {
   initial: {
     transformOrigin: 'top',
-    y: '-100vh',
+    y: '-100%',
   },
   enter: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
+      type: 'spring',
       duration: 0.6,
-      ease: 'easeOut'
     }
   },
   exit: {

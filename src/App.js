@@ -49,9 +49,11 @@ function Layout() {
       </main>
       <footer id="main-footer">
         <h1>elliott groves design</h1>
-        <p>Thanks for visiting!</p>
-        <Link to="/contact">Contact me</Link>
-        <p className="copyright"><Copyright/> 2024 elliott groves design</p>
+        <p>
+          <Link to="/contact" className="contact-link">Contact me</Link>
+        </p>
+        <p>Thanks for visiting! This site was built using <a href="https://react.dev/" target="_blank" rel="noreferrer">React</a> and <a href="https://www.framer.com/motion/" target="_blank" rel="noreferrer">Framer Motion</a>. It also uses <a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Phosphor Icons</a>.</p>
+        <p className="copyright"><Copyright/> 2024 Elliott Groves Design</p>
       </footer>
     </>
   );

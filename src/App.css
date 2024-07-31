@@ -56,11 +56,14 @@
   padding: 1rem;
   max-width: 768px;
 }
+#main-footer h1, #main-footer p {
+  margin-bottom: 2rem;
+}
 #main-footer svg {
   vertical-align: middle;
 }
 #main-footer .copyright {
-  margin-top: 2rem; 
+  margin-top: 4rem; 
 }
 
 .home-section .headshot-figure {
@@ -106,12 +109,10 @@ h1, h2 {
 .sites-list h2, .resume h2 {
   font-size: 2rem;
 }
-
 .sites-list ul {
   list-style: none;
   padding-left: 0;
 }
-
 .sites-list li:first-of-type {
   padding: 0.5rem 1rem 1rem 1rem;
   box-shadow: 0 0 5px var(--emphasis-color);
@@ -130,7 +131,6 @@ h1, h2 {
   left: 1rem;
   color: var(--emphasis-color);
 }
-
 .sites-list li a {
   font-size: 2rem;
   letter-spacing: -0.5px;
@@ -138,7 +138,6 @@ h1, h2 {
   position: relative;
   line-height: 3rem;
 }
-
 .sites-list li a::after {
   content: "→";
   position: absolute;
@@ -150,29 +149,27 @@ h1, h2 {
   width: 2rem;
   transition: width 0.2s ease, right 0.2s ease;
 }
-
 .sites-list li a:hover:after {
   width: 2.4rem;
   right: -2.4rem;
 }
 
+.resume {
+  margin-top: 2rem;
+}
 .resume ul {
   list-style: none;
   padding-left: 0;
 }
-
 .resume li {
   margin-bottom: 1.5rem;
 }
-
 .resume li a {
   font-size: 1.3rem;
 }
-
 .resume li p {
   margin: 0;
 }
-
 .resume li .date {
   margin-bottom: 0.4rem;
   color: rgb(188, 194, 199);
