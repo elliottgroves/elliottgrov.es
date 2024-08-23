@@ -15,9 +15,8 @@
   transform: translate3d(0,0,0);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 0.25rem;
-  flex-wrap: wrap;
 }
 #main-header h1 {
   text-align: center;
@@ -45,6 +44,12 @@
 }
 #main-nav a.active {
   color: var(--emphasis-color);
+}
+#main-nav a.active svg {
+  margin-right: 0;
+}
+#main-nav a.active span {
+  display: none;
 }
 #main-nav a:hover, #main-nav a:focus {
   text-shadow: 0 0 1px;
@@ -221,5 +226,11 @@ h1, h2 {
   }
   #main-header h1 {
     text-align: start;
+  }
+  #main-nav a.active span {
+    display: inline;
+  }
+  #main-nav a.active svg {
+    margin-right: 0.25rem;
   }
 }
