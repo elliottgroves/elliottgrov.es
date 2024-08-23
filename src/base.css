@@ -1,9 +1,9 @@
 :root {
-  --bg-color: rgb(26, 29, 32);
-  --text-color: rgb(193, 164, 140);
-  --emphasis-text-color: rgb(165, 189, 142);
+  --bg-color: #fff;
+  --text-color: #41424C;
+  --emphasis-text-color: blue;
   --link-color: rgb(127, 156, 180);
-  --emphasis-color: #ffe86f;
+  --emphasis-color: goldenrod;
 }
 
 *,

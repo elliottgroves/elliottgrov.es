@@ -3,7 +3,7 @@ import { Routes, Route, Link, useOutlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
 import AnimatedLayout from './AnimatedLayout.js';
-import Headshot from './headshot.webp';
+import Headshot from './images/headshot.webp';
 import './App.css';
 import './base.css';
 
@@ -34,7 +34,7 @@ function Layout() {
     <>
       <header id="main-header">
         <Link to="/" className="logo-home-link">
-          <h1>elliott groves design</h1>
+          <h1>egd</h1>
         </Link>
         <nav id="main-nav">
           <Link to="/" className={classForPath('/')}><House /><span>hello</span></Link>
@@ -60,13 +60,44 @@ function Layout() {
 }
 
 function HomePage() {
+  const heroVariants = {
+    enter: {
+      transition: {
+        delayChildren: 0,
+        staggerChildren: 0.5
+      }
+    }
+  }
+  const heroCardVariants = {
+    initial: {
+      transformPerspective: 500,
+      rotateZ: 0,
+      rotateX: 90,
+      y: -300,
+      opacity: 1,
+    },
+    enter: {
+      transformPer1pective: 500,
+      rotateZ: 235,
+      rotateX: 90,
+      y: 300,
+      opacity: 0,
+      transition: {
+        duration: 5,
+        repeat: Infinity
+      }
+    }
+  }
   return (
     <AnimatedLayout>
-      <section className="home-section">
-        <figure className="headshot-figure">
-          <img src={Headshot} alt="A headshot of Elliott"/>
-          <figcaption><h2>I love the web</h2></figcaption>
-        </figure>
+      <motion.section initial="initial" animate="enter" variants={heroVariants} className="hero">
+        {[...Array(10)].map((x, i) =>
+          <motion.div key={i} className="hero-card" variants={heroCardVariants}/>
+        )}
+        <h1>elliott groves design</h1>
+      </motion.section>
+      <section className="home-section card">
+        <h2>I love the web</h2>
         <p>My whole life I've been interested in <span className="accent-text">digital spaces </span>like a neighborhood with <span className="accent-text">beautiful landscaping </span>and <span className="accent-text">colorful personalities</span>.</p>
         <p>I've been lucky enough to work as a frontend developer and sometimes UI/UX designer since 2016. I would love to put my years of experience to work creating another beautiful place to be online.</p>
         <p>While you're here feel free to <Link to="/sites">browse some of my work</Link> or <Link to="/contact">consider reaching out</Link> about building a site, hiring a frontend developer - or just to say hi!</p>
@@ -140,12 +171,26 @@ function SitesPage() {
 }
 
 function ContactPage() {
+  const headshotVariants = {
+    initial: {
+      rotate: -10,
+      opacity: 0
+    },
+    enter: {
+      rotate: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.4,
+        duration: 0.5,
+        easing: 'easeIn'
+      }
+    }
+  }
   return (
     <AnimatedLayout>
       <section className="contact-info">
-        <p>If you're interested in a website for your small business, a portfolio site, or looking to hire an experienced frontend developer:</p>
-        <p>Email me at sevorge at gmail dot com</p>
-        <p>or connect with me <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/elliott-groves-130b8196/">on LinkedIn</a>!</p>
+        <motion.img initial="initial" animate="enter" variants={headshotVariants} src={Headshot} alt="A picture of Elliott" className="headshot"/>
+        <p className="card">If you're interested in a website for your small business, a portfolio site, or looking to hire an experienced frontend developer, email me at [sevorge at gmail dot com] or connect with me <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/elliott-groves-130b8196/">on LinkedIn</a>!</p>
       </section>
     </AnimatedLayout> 
   );
