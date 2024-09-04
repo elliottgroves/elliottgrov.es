@@ -33,10 +33,10 @@ function Layout() {
   return (
     <>
       <header id="main-header">
-        <Link to="/" className="logo-home-link">
-          <h1>egd</h1>
-        </Link>
         <nav id="main-nav">
+          <Link to="/" className="logo-home-link">
+            <h1>egd</h1>
+          </Link>
           <Link to="/" className={classForPath('/')}><House /><span>hello</span></Link>
           <Link to="/sites" className={classForPath('/sites')}><Browsers /><span>sites</span></Link>
           <Link to="/contact" className={classForPath('/contact')}><AddressBook /><span>contact</span></Link>
