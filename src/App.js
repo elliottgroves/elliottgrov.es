@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, useEffect } from 'react';
 import { Routes, Route, Link, useOutlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
@@ -63,8 +63,9 @@ function HomePage() {
   const heroVariants = {
     enter: {
       transition: {
+        delay: 3,
         delayChildren: 0,
-        staggerChildren: 0.5
+        staggerChildren: 0.6
       }
     }
   }
@@ -73,7 +74,7 @@ function HomePage() {
       transformPerspective: 500,
       rotateZ: 0,
       rotateX: 90,
-      y: -300,
+      y: -400,
       opacity: 1,
     },
     enter: {
@@ -83,7 +84,7 @@ function HomePage() {
       y: 300,
       opacity: 0,
       transition: {
-        duration: 5,
+        duration: 6,
         repeat: Infinity
       }
     }

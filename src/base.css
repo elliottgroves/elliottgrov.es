@@ -1,9 +1,11 @@
 :root {
-  --bg-color: #fff;
-  --text-color: #41424C;
-  --emphasis-text-color: blue;
+  --bg-color: #862424;
+  --text-color: #fffdd0;
+  --emphasis-text-color: #fffdd0;
   --link-color: rgb(127, 156, 180);
   --emphasis-color: goldenrod;
+  --card-border: goldenrod;
+  --accent-text: goldenrod;
 }
 
 *,

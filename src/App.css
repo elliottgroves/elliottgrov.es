@@ -11,7 +11,6 @@
   z-index: 5;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(8px);
-  background: rgba(255, 237, 92, 0.5);
   transform: translate3d(0,0,0);
   display: flex;
   align-items: center;
@@ -30,8 +29,6 @@
 }
 #main-nav a:not(.logo-home-link) {
   font-size: 1.25rem;
-  background: yellow;
-  outline: 1px solid var(--text-color);
   color: var(--text-color);
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -44,12 +41,14 @@
 #main-nav a svg {
   vertical-align: middle; 
   margin-right: 0.25rem;
+  will-change: transition;
+  transition: transform 0.3s ease;
 }
 #main-nav a.active {
   color: var(--emphasis-color);
 }
 #main-nav a.active svg {
-  margin-right: 0;
+  transform: scale(1.4);
 }
 #main-nav a.active span {
   display: none;
@@ -87,9 +86,9 @@
   right: 0;
   margin-right: auto;
   margin-left: auto;
-  background: white;
+  background: var(--bg-color);
 
-  border: 4px solid red;
+  border: 4px solid var(--emphasis-color);
   border-radius: 16px;
   width: 200px;
   max-width: 45vw;
@@ -103,7 +102,6 @@
   text-align: center;
   font-style: normal; 
   font-size: 5rem;
-  background: radial-gradient(#fffa 40%, transparent);
   top: 0;
   left: 0;
   right: 0;
@@ -111,7 +109,7 @@
 }
 .card {
   padding: 0.5rem 1rem;
-  border: 1px solid red;
+  border: 1px solid var(--emphasis-color);
   border-radius: 16px;
   background-color: var(--bg-color);
 }
@@ -126,7 +124,11 @@
   text-decoration: none;
 }
 
-.accent-text, h1, h2 {
+.accent-text {
+  color: var(--accent-text);
+}
+
+h1, h2 {
   color: var(--emphasis-text-color);
 }
 h1, h2 {
@@ -162,11 +164,11 @@ h1, h2 {
   padding: 0.5rem 1rem 1rem 1rem;
   margin: 1rem 0;
   width: fit-content;
-  border: 1px solid red;
+  border: 1px solid var(--card-border);
 }
 .sites-list li:first-of-type {
   margin-top: 2.5rem;
-  box-shadow: 0 0 5px var(--emphasis-color);
+  box-shadow: 0 0 8px 4px var(--emphasis-color);
   position: relative;
   border: none;
 }
@@ -175,7 +177,7 @@ h1, h2 {
   font-style: italic;
   position: absolute;
   line-height: 2rem;
-  top: -2rem;
+  top: -2.2rem;
   left: 1rem;
   color: var(--emphasis-color);
 }
@@ -212,7 +214,7 @@ h1, h2 {
 .resume li {
   margin-bottom: 1.5rem;
   border-radius: 0.5rem;
-  border: 1px solid red;
+  border: 1px solid var(--card-border);
   padding: 1rem 1.5rem;
 }
 .resume li a {
@@ -237,7 +239,11 @@ h1, h2 {
   #main-nav a.active span {
     display: inline;
   }
+  #main-nav a svg {
+    will-change: transform, margin-right;
+    transition: transform 0.3s ease, margin-right 0.3s ease;
+  }
   #main-nav a.active svg {
-    margin-right: 0.25rem;
+    margin-right: 0.5rem;
   }
 }
