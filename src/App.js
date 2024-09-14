@@ -1,4 +1,4 @@
-import { cloneElement, useEffect } from 'react';
+import { cloneElement } from 'react';
 import { Routes, Route, Link, useOutlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
