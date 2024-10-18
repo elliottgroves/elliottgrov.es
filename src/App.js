@@ -201,7 +201,7 @@ function ContactPage() {
     <AnimatedLayout>
       <section className="contact-info">
         <motion.img initial="initial" animate="enter" variants={headshotVariants} src={Headshot} alt="A picture of Elliott" className="headshot"/>
-        <p className="card">If you're interested in a website for your small business, a portfolio site, or looking to hire an experienced frontend developer, email me at [sevorge at gmail dot com] or connect with me <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/elliott-groves-130b8196/">on LinkedIn</a>!</p>
+        <p className="card">If you're interested in a website for your small business, a portfolio site, or looking to hire an experienced frontend developer or UX designer, email me at [sevorge at gmail dot com] or connect with me <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/elliott-groves-130b8196/">on LinkedIn</a>!</p>
       </section>
     </AnimatedLayout> 
   );
