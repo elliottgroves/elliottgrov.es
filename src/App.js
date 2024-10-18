@@ -133,6 +133,10 @@ function SitesPage() {
         <h2>Sites</h2>
         <motion.ul initial="initial" animate="enter" variants={listVariants}>
           <motion.li variants={listItemVariants}>
+            <a href="https://leeannagroveseditor.com" target="_blank" rel="noreferrer">LeeAnna Groves, Editor</a>
+            <p>Marketing website for freelance editing services.</p>
+          </motion.li>
+          <motion.li variants={listItemVariants}>
             <a href="https://welcome-cube.netlify.app" target="_blank" rel="noreferrer">Welcome Cube</a>
             <p>Instruction manual for an introductory <i>Magic: the Gathering</i> fan project.</p>
           </motion.li>
