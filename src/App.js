@@ -7,6 +7,36 @@ import Headshot from './images/headshot.webp';
 import './App.css';
 import './base.css';
 
+const heroVariants = {
+  enter: {
+    transition: {
+      delay: 3,
+      delayChildren: 0,
+      staggerChildren: 0.6
+    }
+  }
+}
+const heroCardVariants = {
+  initial: {
+    transformPerspective: 500,
+    rotateZ: 0,
+    rotateX: 90,
+    y: -400,
+    opacity: 1,
+  },
+  enter: {
+    transformPer1pective: 500,
+    rotateZ: 235,
+    rotateX: 90,
+    y: 300,
+    opacity: 0,
+    transition: {
+      duration: 6,
+      repeat: Infinity
+    }
+  }
+}
+
 export default function App() {
   return (
     <>
@@ -43,6 +73,12 @@ function Layout() {
         </nav>
       </header>
       <main id="main-content">
+        <motion.section initial="initial" animate="enter" variants={heroVariants} className="hero desktop">
+          {[...Array(10)].map((x, i) =>
+            <motion.div key={i} className="hero-card" variants={heroCardVariants}/>
+          )}
+          <h1>elliott groves design</h1>
+        </motion.section>
         <AnimatePresence mode="wait" initial={true}>
           { element && cloneElement(element, { key: pathname })}
         </AnimatePresence>
@@ -50,7 +86,6 @@ function Layout() {
       <footer id="main-footer">
         <h1>elliott groves design</h1>
         <p>
-          <Link to="/contact" className="contact-link">Contact me</Link>
         </p>
         <p>Thanks for visiting! This site was built using <a href="https://react.dev/" target="_blank" rel="noreferrer">React</a> and <a href="https://www.framer.com/motion/" target="_blank" rel="noreferrer">Framer Motion</a>. It also uses <a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Phosphor Icons</a>.</p>
         <p className="copyright"><Copyright/> 2024 Elliott Groves Design</p>
@@ -60,38 +95,9 @@ function Layout() {
 }
 
 function HomePage() {
-  const heroVariants = {
-    enter: {
-      transition: {
-        delay: 3,
-        delayChildren: 0,
-        staggerChildren: 0.6
-      }
-    }
-  }
-  const heroCardVariants = {
-    initial: {
-      transformPerspective: 500,
-      rotateZ: 0,
-      rotateX: 90,
-      y: -400,
-      opacity: 1,
-    },
-    enter: {
-      transformPer1pective: 500,
-      rotateZ: 235,
-      rotateX: 90,
-      y: 300,
-      opacity: 0,
-      transition: {
-        duration: 6,
-        repeat: Infinity
-      }
-    }
-  }
   return (
     <AnimatedLayout>
-      <motion.section initial="initial" animate="enter" variants={heroVariants} className="hero">
+      <motion.section initial="initial" animate="enter" variants={heroVariants} className="hero mobile">
         {[...Array(10)].map((x, i) =>
           <motion.div key={i} className="hero-card" variants={heroCardVariants}/>
         )}
@@ -100,7 +106,7 @@ function HomePage() {
       <section className="home-section card">
         <h2>I love the web</h2>
         <p>My whole life I've been interested in <span className="accent-text">digital spaces </span>like a neighborhood with <span className="accent-text">beautiful landscaping </span>and <span className="accent-text">colorful personalities</span>.</p>
-        <p>I've been lucky enough to work as a frontend developer and sometimes UI/UX designer since 2016. I would love to put my years of experience to work creating another beautiful place to be online.</p>
+        <p>I've been lucky enough to work as a frontend developer and UI/UX designer since 2016. I would love to put my years of experience to work creating another beautiful place to be online.</p>
         <p>While you're here feel free to <Link to="/sites">browse some of my work</Link> or <Link to="/contact">consider reaching out</Link> about building a site, hiring a frontend developer - or just to say hi!</p>
       </section>
     </AnimatedLayout>

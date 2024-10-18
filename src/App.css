@@ -73,6 +73,9 @@
   margin-top: 4rem; 
 }
 
+#main-content .hero.desktop {
+  display: none;
+}
 .hero {
   position: relative;
   height: 65vh;
@@ -245,5 +248,20 @@ h1, h2 {
   }
   #main-nav a.active svg {
     margin-right: 0.5rem;
+  }
+  #main-content {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    align-items: center;
+  }
+  #main-content .hero.desktop {
+    display: block;
+    position: sticky;
+    top: 0;
+  }
+  #main-content .hero.mobile {
+    display: none;
   }
 }
