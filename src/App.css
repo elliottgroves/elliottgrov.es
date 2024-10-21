@@ -253,8 +253,11 @@ h1, h2 {
     max-width: 1200px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0;
-    align-items: center;
+    padding: 0 1rem;
+    align-items: start;
+  }
+  #main-content .home-section {
+    margin-top: 5rem;
   }
   #main-content .hero.desktop {
     display: block;
