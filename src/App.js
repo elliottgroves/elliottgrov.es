@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
 import AnimatedLayout from './AnimatedLayout.js';
 import Headshot from './images/headshot.webp';
+import SomeGuys from './images/someguys.mp4';
 import './App.css';
 import './base.css';
 
@@ -25,7 +26,7 @@ const heroCardVariants = {
     opacity: 1,
   },
   enter: {
-    transformPer1pective: 500,
+    transformPerspective: 500,
     rotateZ: 235,
     rotateX: 90,
     y: 300,
@@ -43,7 +44,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="/sites" element={<SitesPage />} />
+          <Route path="/sites" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
@@ -65,20 +66,13 @@ function Layout() {
       <header id="main-header">
         <nav id="main-nav">
           <Link to="/" className="logo-home-link">
-            <h1>egd</h1>
+            <h1>Elliott Groves Design.</h1>
           </Link>
           <Link to="/" className={classForPath('/')}><House /><span>hello</span></Link>
-          <Link to="/sites" className={classForPath('/sites')}><Browsers /><span>sites</span></Link>
           <Link to="/contact" className={classForPath('/contact')}><AddressBook /><span>contact</span></Link>
         </nav>
       </header>
       <main id="main-content">
-        <motion.section initial="initial" animate="enter" variants={heroVariants} className="hero desktop">
-          {[...Array(10)].map((x, i) =>
-            <motion.div key={i} className="hero-card" variants={heroCardVariants}/>
-          )}
-          <h1>elliott groves design</h1>
-        </motion.section>
         <AnimatePresence mode="wait" initial={true}>
           { element && cloneElement(element, { key: pathname })}
         </AnimatePresence>
@@ -95,25 +89,6 @@ function Layout() {
 }
 
 function HomePage() {
-  return (
-    <AnimatedLayout>
-      <motion.section initial="initial" animate="enter" variants={heroVariants} className="hero mobile">
-        {[...Array(10)].map((x, i) =>
-          <motion.div key={i} className="hero-card" variants={heroCardVariants}/>
-        )}
-        <h1>elliott groves design</h1>
-      </motion.section>
-      <section className="home-section card">
-        <h2>I love the web</h2>
-        <p>My whole life I've been interested in <span className="accent-text">digital spaces </span>like a neighborhood with <span className="accent-text">beautiful landscaping </span>and <span className="accent-text">colorful personalities</span>.</p>
-        <p>I've been lucky enough to work as a frontend developer and UI/UX designer since 2016. I would love to put my years of experience to work creating another beautiful place to be online.</p>
-        <p>While you're here feel free to <Link to="/sites">browse some of my work</Link> or <Link to="/contact">consider reaching out</Link> about building a site, hiring a frontend developer - or just to say hi!</p>
-      </section>
-    </AnimatedLayout>
-  );
-}
-
-function SitesPage() {
   const listVariants = {
     enter: {
       transition: {
@@ -133,11 +108,28 @@ function SitesPage() {
       y: 0,
     },
   }
+
+  const gifListVariants = {
+    enter: {
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.1
+      }
+    }
+  }
   return (
     <AnimatedLayout>
+      <section className="hero">
+        <img src={Headshot} alt="A picture of Elliott" className="headshot"/>
+        <p>Your partner for beautiful, seamless web experiences.</p>
+      </section>
       <section className="sites-list">
         <h2>Sites</h2>
-        <motion.ul initial="initial" animate="enter" variants={listVariants}>
+        <motion.ul initial="initial" animate="enter" variants={gifListVariants}>
+          <motion.li>
+            <video src={SomeGuys} autoPlay loop muted playsInline></video>
+          </motion.li>
+
           <motion.li variants={listItemVariants}>
             <a href="https://leeannagroveseditor.com" target="_blank" rel="noreferrer">LeeAnna Groves, Editor</a>
             <p>Marketing website for freelance editing services.</p>

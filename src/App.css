@@ -169,6 +169,9 @@ h1, h2 {
   width: fit-content;
   border: 1px solid var(--card-border);
 }
+.sites-list li video {
+  max-width: 100%;
+}
 .sites-list li:first-of-type {
   margin-top: 2.5rem;
   box-shadow: 0 0 8px 4px var(--emphasis-color);
@@ -251,8 +254,6 @@ h1, h2 {
   }
   #main-content {
     max-width: 1200px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     padding: 0 1rem;
     align-items: start;
   }
