@@ -167,7 +167,6 @@ h1, h2 {
   padding: 0.5rem 1rem 1rem 1rem;
   margin: 1rem 0;
   width: fit-content;
-  border: 1px solid var(--card-border);
 }
 .sites-list li video {
   max-width: 100%;
@@ -241,6 +240,9 @@ h1, h2 {
   }
   #main-header h1 {
     text-align: start;
+  }
+  #main-nav {
+    margin: 0;
   }
   #main-nav a.active span {
     display: inline;

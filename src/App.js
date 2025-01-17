@@ -1,10 +1,14 @@
 import { cloneElement } from 'react';
 import { Routes, Route, Link, useOutlet, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useInView } from 'motion/react';
 import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
 import AnimatedLayout from './AnimatedLayout.js';
 import Headshot from './images/headshot.webp';
 import SomeGuys from './images/someguys.mp4';
+import Chattersum from './images/chattersum.mp4';
+import WelcomeCube from './images/welcomecube.mp4';
+import Tuftress from './images/tuftress.mp4';
+import LGE from './images/lge.mp4';
 import './App.css';
 import './base.css';
 
@@ -78,10 +82,10 @@ function Layout() {
         </AnimatePresence>
       </main>
       <footer id="main-footer">
-        <h1>elliott groves design</h1>
+        <h1>Elliott Groves Design.</h1>
         <p>
         </p>
-        <p>Thanks for visiting! This site was built using <a href="https://react.dev/" target="_blank" rel="noreferrer">React</a> and <a href="https://www.framer.com/motion/" target="_blank" rel="noreferrer">Framer Motion</a>. It also uses <a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Phosphor Icons</a>.</p>
+        <p>Thanks for visiting! This site was built using <a href="https://react.dev/" target="_blank" rel="noreferrer">React</a> and <a href="https://motion.dev/" target="_blank" rel="noreferrer">Motion</a>. It also uses <a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Phosphor Icons</a>.</p>
         <p className="copyright"><Copyright/> 2024 Elliott Groves Design</p>
       </footer>
     </>
@@ -102,11 +106,19 @@ function HomePage() {
     initial: {
       opacity: 0,
       y: -40,
+      scale: 0.8
     },
     enter: {
       opacity: 1,
       y: 0,
+      scale: 0.8
     },
+    whileInView: {
+      scale: 1.0,
+    },
+    viewport: {
+      amount: 0.8
+    }
   }
 
   const gifListVariants = {
@@ -126,29 +138,30 @@ function HomePage() {
       <section className="sites-list">
         <h2>Sites</h2>
         <motion.ul initial="initial" animate="enter" variants={gifListVariants}>
-          <motion.li>
+          <motion.li variants={listItemVariants} viewport={{amount: 0.8}}>
             <video src={SomeGuys} autoPlay loop muted playsInline></video>
-          </motion.li>
-
-          <motion.li variants={listItemVariants}>
-            <a href="https://leeannagroveseditor.com" target="_blank" rel="noreferrer">LeeAnna Groves, Editor</a>
-            <p>Marketing website for freelance editing services.</p>
-          </motion.li>
-          <motion.li variants={listItemVariants}>
-            <a href="https://welcome-cube.netlify.app" target="_blank" rel="noreferrer">Welcome Cube</a>
-            <p>Instruction manual for an introductory <i>Magic: the Gathering</i> fan project.</p>
-          </motion.li>
-          <motion.li variants={listItemVariants}>
             <a href="http://someguyspizza.com" target="_blank" rel="noreferrer">Some Guys Pizza</a>
             <p>Business and menu site for a local relaxed Italian eatery.</p>
           </motion.li>
           <motion.li variants={listItemVariants}>
+            <video src={Chattersum} autoPlay loop muted playsInline></video>
             <a href="https://chattersum.com/labs/" target="_blank" rel="noreferrer">Chattersum</a>
             <p>Brochure site for Chattersum, a text analysis software tool.</p>
           </motion.li>
           <motion.li variants={listItemVariants}>
+            <video src={WelcomeCube} autoPlay loop muted playsInline></video>
+            <a href="https://welcome-cube.netlify.app" target="_blank" rel="noreferrer">Welcome Cube</a>
+            <p>Instruction manual for an introductory <i>Magic: the Gathering</i> fan project.</p>
+          </motion.li>
+          <motion.li>
+            <video src={Tuftress} autoPlay loop muted playsInline></video>
             <a href="http://thetuftress.com" target="_blank" rel="noreferrer">The Tuftress</a>
             <p>Portfolio site for an Indianapolis-based rug tufting artist.</p>
+          </motion.li>
+          <motion.li>
+            <video src={LGE} autoPlay loop muted playsInline></video>
+            <a href="https://leeannagroveseditor.com" target="_blank" rel="noreferrer">LeeAnna Groves, Editor</a>
+            <p>Marketing website for freelance editing services.</p>
           </motion.li>
         </motion.ul>
       </section>
