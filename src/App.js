@@ -1,8 +1,7 @@
-import { cloneElement, useEffect, useRef } from 'react';
-import { Routes, Route, Link, useOutlet, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion, useInView } from 'motion/react';
-import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
-import AnimatedLayout from './AnimatedLayout.js';
+import { useEffect, useRef } from 'react';
+import { HashLink } from 'react-router-hash-link';
+import { motion, useInView } from 'motion/react';
+import { Browsers, AddressBook, ReadCvLogo, Copyright } from '@phosphor-icons/react';
 import Headshot from './images/headshot.webp';
 import SomeGuys from './images/someguys.mp4';
 import Chattersum from './images/chattersum.mp4';
@@ -15,48 +14,40 @@ import './base.css';
 export default function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/sites" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Route>
-      </Routes>
-    </>
-  );
-}
-
-function Layout() {
-  const { pathname } = useLocation();
-  const element = useOutlet();
-
-  function classForPath(path) {
-    if (pathname === path) {
-      return 'active';
-    }
-  }
-  return (
-    <>
-      <header id="main-header">
-        <nav id="main-nav">
-          <Link to="/" className="logo-home-link">
-            <h1>Elliott Groves Design.</h1>
-          </Link>
-          <Link to="/" className={classForPath('/')}><House /><span>hello</span></Link>
-          <Link to="/contact" className={classForPath('/contact')}><AddressBook /><span>contact</span></Link>
-        </nav>
-      </header>
+      <motion.nav id="main-nav">
+        <HashLink to="/#" smooth className="logo-home-link">
+          <h1>Elliott Groves Design.</h1>
+        </HashLink>
+        <ul>
+          <li>
+            <HashLink to="#sites" smooth>
+              <Browsers />
+              <span>Sites</span>
+            </HashLink>
+          </li>
+          <li>
+            <HashLink to="#work" smooth>
+              <ReadCvLogo />
+              <span>Work</span>
+            </HashLink>
+          </li>
+          <li>
+            <HashLink to="#contact" smooth>
+              <AddressBook />
+              <span>Contact</span>
+            </HashLink>
+          </li>
+        </ul>
+      </motion.nav>
       <main id="main-content">
-        <AnimatePresence mode="wait" initial={true}>
-          { element && cloneElement(element, { key: pathname })}
-        </AnimatePresence>
+        <HomePage/>
       </main>
       <footer id="main-footer">
         <h1>Elliott Groves Design.</h1>
         <p>
         </p>
         <p>Thanks for visiting! This site was built using <a href="https://react.dev/" target="_blank" rel="noreferrer">React</a> and <a href="https://motion.dev/" target="_blank" rel="noreferrer">Motion</a>. It also uses <a href="https://phosphoricons.com/" target="_blank" rel="noreferrer">Phosphor Icons</a>.</p>
-        <p className="copyright"><Copyright/> 2024 Elliott Groves Design</p>
+        <p className="copyright"><Copyright/> 2025 Elliott Groves Design</p>
       </footer>
     </>
   );
@@ -121,18 +112,30 @@ function HomePage() {
   ];
 
   return (
-    <AnimatedLayout>
+    <>
       <section className="hero">
+        <h2>Your partner for<br/><em>beautiful, seamless</em><br/>web experiences.</h2>
         <img src={Headshot} alt="A picture of Elliott" className="headshot"/>
-        <p>Your partner for beautiful, seamless web experiences.</p>
       </section>
-      <section className="sites-list">
+      <section id="sites" className="sites-list">
         <h2>Sites</h2>
         <ul>
           {sites.map(site => (
-            <motion.li initial="offscreen" whileInView="onscreen" viewport={{amount: 0.6}}>
+            <motion.li
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{amount: 'all'}}
+            >
               <motion.div variants={listItemWithVideoVariants}>
-                <motion.video src={site.video} loop muted playsInline/>
+                <motion.video
+                  onViewportEnter={(entry) => entry.target.play()}
+                  onviewportLeave={(entry) => entry.target.pause()}
+                  viewport={{amount: 'all'}}
+                  src={site.video}
+                  loop
+                  muted
+                  playsInline
+                />
                 <a href={site.url} target="_blank" rel="noreferrer">{site.name}</a>
                 <p>{site.description}</p>
               </motion.div>
@@ -147,7 +150,7 @@ function HomePage() {
           </motion.li>
         </ul>
       </section>
-      <section className="resume">
+      <section id="work" className="resume">
         <h2>Work History</h2>
         <ul>
           <li>
@@ -164,32 +167,9 @@ function HomePage() {
           </li>
         </ul>
       </section>
-    </AnimatedLayout>
-  );
-}
-
-function ContactPage() {
-  const headshotVariants = {
-    initial: {
-      rotate: -10,
-      opacity: 0
-    },
-    enter: {
-      rotate: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.4,
-        duration: 0.5,
-        easing: 'easeIn'
-      }
-    }
-  }
-  return (
-    <AnimatedLayout>
-      <section className="contact-info">
-        <motion.img initial="initial" animate="enter" variants={headshotVariants} src={Headshot} alt="A picture of Elliott" className="headshot"/>
+      <section id="contact" className="contact-info">
         <p className="card">If you're interested in a website for your small business, a portfolio site, or looking to hire an experienced frontend developer or UX designer, email me at [sevorge at gmail dot com] or connect with me <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/elliott-groves-130b8196/">on LinkedIn</a>!</p>
       </section>
-    </AnimatedLayout> 
+    </>
   );
 }
