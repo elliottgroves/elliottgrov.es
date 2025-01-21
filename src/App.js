@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, useEffect, useRef } from 'react';
 import { Routes, Route, Link, useOutlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useInView } from 'motion/react';
 import { House, Browsers, AddressBook, Copyright } from '@phosphor-icons/react';
@@ -11,36 +11,6 @@ import Tuftress from './images/tuftress.mp4';
 import LGE from './images/lge.mp4';
 import './App.css';
 import './base.css';
-
-const heroVariants = {
-  enter: {
-    transition: {
-      delay: 3,
-      delayChildren: 0,
-      staggerChildren: 0.6
-    }
-  }
-}
-const heroCardVariants = {
-  initial: {
-    transformPerspective: 500,
-    rotateZ: 0,
-    rotateX: 90,
-    y: -400,
-    opacity: 1,
-  },
-  enter: {
-    transformPerspective: 500,
-    rotateZ: 235,
-    rotateX: 90,
-    y: 300,
-    opacity: 0,
-    transition: {
-      duration: 6,
-      repeat: Infinity
-    }
-  }
-}
 
 export default function App() {
   return (
@@ -93,42 +63,63 @@ function Layout() {
 }
 
 function HomePage() {
-  const listVariants = {
-    enter: {
-      transition: {
-        delayChildren: 0.6,
-        staggerChildren: 0.2
-      }
+  const listItemWithVideo = useRef(null);
+  const isInView = useInView(listItemWithVideo, { amount: 0.2 });
+
+  useEffect(() => {
+    if (isInView) {
+      listItemWithVideo.current.play();
+    } else {
+      listItemWithVideo.current.pause();
+    }
+  }, [isInView]);
+
+
+  const listItemWithVideoVariants = {
+    onscreen: {
+      scale: 1,
+      x: 0,
+    },
+    offscreen: {
+      scale: 0.8,
+      x: -25
     }
   }
 
-  const listItemVariants = {
-    initial: {
-      opacity: 0,
-      y: -40,
-      scale: 0.8
-    },
-    enter: {
-      opacity: 1,
-      y: 0,
-      scale: 0.8
-    },
-    whileInView: {
-      scale: 1.0,
-    },
-    viewport: {
-      amount: 0.8
-    }
-  }
 
-  const gifListVariants = {
-    enter: {
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1
-      }
+  const sites = [
+    {
+      name: 'Some Guys Pizza',
+      description: 'Business and menu site for a local relaxed Italian eatery.',
+      url: 'http://someguyspizza.com',
+      video: SomeGuys
+    },
+    {
+      name: 'Chattersum',
+      description: 'Brochure site for Chattersum, a text analysis software tool.',
+      url: 'https://chattersum.com/labs/',
+      video: Chattersum
+    },
+    {
+      name: 'Welcome Cube',
+      description: 'Instruction manual for an introductory Magic: the Gathering fan project.',
+      url: 'https://welcome-cube.netlify.app',
+      video: WelcomeCube
+    },
+    {
+      name: 'The Tuftress',
+      description: 'Portfolio site for an Indianapolis-based rug tufting artist.',
+      url: 'https://thetuftress.com',
+      video: Tuftress
+    },
+    {
+      name: 'LeeAnna Groves, Editor',
+      description: 'Marketing website for freelance editing services.',
+      url: 'https://leeannagroveseditor.com',
+      video: LGE
     }
-  }
+  ];
+
   return (
     <AnimatedLayout>
       <section className="hero">
@@ -137,33 +128,24 @@ function HomePage() {
       </section>
       <section className="sites-list">
         <h2>Sites</h2>
-        <motion.ul initial="initial" animate="enter" variants={gifListVariants}>
-          <motion.li variants={listItemVariants} viewport={{amount: 0.8}}>
-            <video src={SomeGuys} autoPlay loop muted playsInline></video>
-            <a href="http://someguyspizza.com" target="_blank" rel="noreferrer">Some Guys Pizza</a>
-            <p>Business and menu site for a local relaxed Italian eatery.</p>
+        <ul>
+          {sites.map(site => (
+            <motion.li initial="offscreen" whileInView="onscreen" viewport={{amount: 0.6}}>
+              <motion.div variants={listItemWithVideoVariants}>
+                <motion.video src={site.video} loop muted playsInline/>
+                <a href={site.url} target="_blank" rel="noreferrer">{site.name}</a>
+                <p>{site.description}</p>
+              </motion.div>
+            </motion.li>
+          ))}
+          <motion.li initial="offscreen" whileInView="onscreen" viewport={{amount: 0.8}}>
+            <motion.div variants={listItemWithVideoVariants}>
+              <motion.video ref={listItemWithVideo} src={SomeGuys} loop muted playsInline/>
+              <a href="http://someguyspizza.com" target="_blank" rel="noreferrer">Some Guys Pizza</a>
+              <p>Business and menu site for a local relaxed Italian eatery.</p>
+            </motion.div>
           </motion.li>
-          <motion.li variants={listItemVariants}>
-            <video src={Chattersum} autoPlay loop muted playsInline></video>
-            <a href="https://chattersum.com/labs/" target="_blank" rel="noreferrer">Chattersum</a>
-            <p>Brochure site for Chattersum, a text analysis software tool.</p>
-          </motion.li>
-          <motion.li variants={listItemVariants}>
-            <video src={WelcomeCube} autoPlay loop muted playsInline></video>
-            <a href="https://welcome-cube.netlify.app" target="_blank" rel="noreferrer">Welcome Cube</a>
-            <p>Instruction manual for an introductory <i>Magic: the Gathering</i> fan project.</p>
-          </motion.li>
-          <motion.li>
-            <video src={Tuftress} autoPlay loop muted playsInline></video>
-            <a href="http://thetuftress.com" target="_blank" rel="noreferrer">The Tuftress</a>
-            <p>Portfolio site for an Indianapolis-based rug tufting artist.</p>
-          </motion.li>
-          <motion.li>
-            <video src={LGE} autoPlay loop muted playsInline></video>
-            <a href="https://leeannagroveseditor.com" target="_blank" rel="noreferrer">LeeAnna Groves, Editor</a>
-            <p>Marketing website for freelance editing services.</p>
-          </motion.li>
-        </motion.ul>
+        </ul>
       </section>
       <section className="resume">
         <h2>Work History</h2>

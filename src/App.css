@@ -173,12 +173,10 @@ h1, h2 {
 }
 .sites-list li:first-of-type {
   margin-top: 2.5rem;
-  box-shadow: 0 0 8px 4px var(--emphasis-color);
   position: relative;
   border: none;
 }
 .sites-list li:first-of-type::before {
-  content: "Featured";
   font-style: italic;
   position: absolute;
   line-height: 2rem;
