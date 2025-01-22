@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import { motion, useInView } from 'motion/react';
+import Splt from 'react-spltjs';
 import { Browsers, AddressBook, ReadCvLogo, Copyright } from '@phosphor-icons/react';
 import Headshot from './images/headshot.webp';
 import SomeGuys from './images/someguys.mp4';
@@ -8,6 +9,7 @@ import Chattersum from './images/chattersum.mp4';
 import WelcomeCube from './images/welcomecube.mp4';
 import Tuftress from './images/tuftress.mp4';
 import LGE from './images/lge.mp4';
+import Logo from './images/logo.svg';
 import './App.css';
 import './base.css';
 
@@ -16,6 +18,7 @@ export default function App() {
     <>
       <motion.nav id="main-nav">
         <HashLink to="/#" smooth className="logo-home-link">
+          <img src={Logo} alt="Elliott Groves Design logo" class="logo"/>
           <h1>Elliott Groves Design.</h1>
         </HashLink>
         <ul>
@@ -68,12 +71,10 @@ function HomePage() {
 
   const listItemWithVideoVariants = {
     onscreen: {
-      scale: 1,
-      x: 0,
+      background: 'green'
     },
     offscreen: {
-      scale: 0.8,
-      x: -25
+      background: 'transparent'
     }
   }
 
@@ -114,7 +115,13 @@ function HomePage() {
   return (
     <>
       <section className="hero">
-        <h2>Your partner for<br/><em>beautiful, seamless</em><br/>web experiences.</h2>
+        <h2>
+          <Splt text="Your partner for"/>
+          <br/>
+          <em><Splt text="beautiful, seamless"/></em>
+          <br/>
+          <Splt text="web experiences."/>
+        </h2>
         <img src={Headshot} alt="A picture of Elliott" className="headshot"/>
       </section>
       <section id="sites" className="sites-list">
@@ -141,7 +148,7 @@ function HomePage() {
               </motion.div>
             </motion.li>
           ))}
-          <motion.li initial="offscreen" whileInView="onscreen" viewport={{amount: 0.8}}>
+          <motion.li initial="offscreen" whileInView="onscreen" viewport={{amount: 0.5}}>
             <motion.div variants={listItemWithVideoVariants}>
               <motion.video ref={listItemWithVideo} src={SomeGuys} loop muted playsInline/>
               <a href="http://someguyspizza.com" target="_blank" rel="noreferrer">Some Guys Pizza</a>
@@ -151,18 +158,18 @@ function HomePage() {
         </ul>
       </section>
       <section id="work" className="resume">
-        <h2>Work History</h2>
+        <h2>Other Work History</h2>
         <ul>
           <li>
+            <p className="date">2021-2023</p> 
             <a href="https://pivotcx.io/">PivotCX</a>
             <p>UX/Software Developer</p>
-            <p className="date">2021-2023</p> 
             <p>Lead Vue developer. Primary UI/UX designer. Mentored junior developers. Django and Nuxt app development.</p>
           </li>
           <li>
+            <p className="date">2016-2020</p> 
             <a href="https://backlinehealth.com/">Backline by DrFirst (formerly Diagnotes)</a>
             <p>Web Application Developer</p>
-            <p className="date">2016-2020</p> 
             <p>Developed Vue main frontend and Angular scheduling app. UX design for features and views. Created and maintained regression test suites.</p>
           </li>
         </ul>
