@@ -5,7 +5,7 @@
   padding: 0 1rem 2rem 1rem;
 }
 #main-nav {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
   position: sticky;
   width: 100vw;
   top: 0;
@@ -16,6 +16,7 @@
     "links";
   gap: 1rem;
   background: var(--bg-color);
+  box-shadow: 0 0 5px 5px white;
 }
 #main-nav .logo-home-link {
   grid-area: logo;
@@ -26,6 +27,15 @@
 }
 #main-nav .logo-home-link .logo {
   height: 2rem;
+  animation: spin 5s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotateY(0deg) perspective(100px);
+  }
+  to {
+    transform: rotateY(360deg) perspective(100px);
+  }
 }
 #main-nav .logo-home-link h1 {
   font-size: 2.2rem;
@@ -160,7 +170,7 @@ h1, h2 {
   color: var(--emphasis-color);
 }
 .sites-list li a {
-  font-size: 2rem;
+  font-size: 1.75rem;
   letter-spacing: -0.5px;
   text-decoration: none;
   position: relative;
