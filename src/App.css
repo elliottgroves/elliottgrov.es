@@ -218,7 +218,7 @@ h1, h2 {
 
 @media screen and (min-width: 768px) {
   #main-nav {
-    margin: 0;
+    margin-bottom: 0.5rem;
     grid-template-areas: 
       "logo links";
     grid-template-columns: 1fr auto;
