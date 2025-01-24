@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import { motion, useInView } from 'motion/react';
+import { motion } from 'motion/react';
 import Splt from 'react-spltjs';
 import { Browsers, AddressBook, ReadCvLogo, Copyright } from '@phosphor-icons/react';
 import Headshot from './images/headshot.webp';
@@ -147,7 +147,7 @@ function HomePage() {
             <Splt text="web experiences." speed={1.0} offset={0.05} ease="ease-in"/>
           </span>
         </h2>
-        <img src={Headshot} alt="A picture of Elliott" className="headshot"/>
+        <img src={Headshot} alt="Elliott Groves" className="headshot"/>
       </section>
       <section id="sites" className="sites-list">
         <h2>Sites</h2>
