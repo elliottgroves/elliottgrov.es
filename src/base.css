@@ -1,7 +1,7 @@
 :root {
-  --bg-color: #862424;
-  --text-color: #fffdd0;
-  --emphasis-text-color: #fffdd0;
+  --bg-color: #fff;
+  --text-color: cornflowerblue;
+  --emphasis-text-color: cornflowerblue;
   --link-color: rgb(127, 156, 180);
   --emphasis-color: goldenrod;
   --card-border: goldenrod;
