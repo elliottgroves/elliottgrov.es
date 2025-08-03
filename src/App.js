@@ -179,6 +179,12 @@ function HomePage() {
         <h2>Work History</h2>
         <ul>
           <li>
+            <p className="date">2024-2025</p> 
+            <a href="https://www.maximor.ai/">Maximor AI</a>
+            <p>Senior Frontend Engineer</p>
+            <p>React engineer using Typescript and Tailwind. Component libraries and RESTful API integration. Collaboration with designers on UI/UX decisions.</p>
+          </li>
+          <li>
             <p className="date">2021-2023</p> 
             <a href="https://pivotcx.io/">PivotCX</a>
             <p>UX/Software Developer</p>
