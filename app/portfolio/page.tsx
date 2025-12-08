@@ -1,10 +1,15 @@
 import AlbumCard from "@/app/portfolio/album-card"
 
 export default function Page() {
-  const albums: Array<{ title: string, songs: Array<{ title: string, path: string }> }> = [
+  const albums: Array<{ title: string, coverImgPath: string, songs: Array<{ title: string, path: string }> }> = [
     { 
-      title: '3+1', songs: [
-        { title: 'Finally', path: '/audio/Finally.wav' }
+      title: '3+1', 
+      coverImgPath: '',
+      songs: [
+        { title: 'Finally', path: '/audio/Finally.wav' },
+        { title: 'Art', path: '/audio/Art.wav' },
+        { title: 'Yells', path: '/audio/Yells.wav' },
+        { title: 'Eternity', path: '/audio/Eternity.wav' }
       ]
     }
   ]
@@ -23,10 +28,10 @@ export default function Page() {
       </section>
       <section>
         <h2>Personal</h2>
-        <h3>Music</h3>
-        <p>I enjoy making instrumental hip-hop inspired electronic music when the mood strikes me. Since college I've done it under the alias <b>mazy beats</b>. Below are some other instrumentals not available on <a href="https://soundcloud.com/mazybeats" target="_blank" rel="noreferrer">my SoundCloud</a>.</p>
+        <h3 className="text-sm">Music</h3>
+        <p>I enjoy making instrumental hip-hop inspired electronic music when the mood strikes me. Since college I've done so under the alias <b>mazy beats</b>. Below are some other instrumentals not available on <a href="https://soundcloud.com/mazybeats" target="_blank" rel="noreferrer">my SoundCloud</a>.</p>
         <ul>
-          {albums.map((album) => <AlbumCard key={album.title} title={album.title} songs={album.songs}/>)}
+          {albums.map((album) => <AlbumCard key={album.title} title={album.title} coverImgPath={album.coverImgPath} songs={album.songs}/>)}
         </ul>
       </section>
       <section>
