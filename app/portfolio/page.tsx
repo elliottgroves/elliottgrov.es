@@ -4,7 +4,7 @@ export default function Page() {
   const albums: Array<{ title: string, coverImgPath: string, explicit: boolean, songs: Array<{ title: string, path: string }> }> = [
     { 
       title: '3+1', 
-      coverImgPath: '',
+      coverImgPath: '/images/3+1.png',
       explicit: true,
       songs: [
         { title: 'Finally', path: '/audio/Finally.wav' },

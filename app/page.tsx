@@ -1,3 +1,9 @@
 export default function Page() {
-  return <h1>Hello world</h1>
+  return (
+    <>
+      <section className="hero">
+
+      </section>
+    </>
+  )
 }
